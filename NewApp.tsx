@@ -1,10 +1,16 @@
-import React from 'react'
-import {View, Text, SafeAreaView, ColorSchemeName, useColorScheme, StyleSheet} from 'react-native'
+import React, { useEffect } from 'react'
+import {View, Text, SafeAreaView, ColorSchemeName, useColorScheme, StyleSheet, Platform} from 'react-native'
+import SplashScreen from 'react-native-splash-screen'
 
 
 function NewApp(): JSX.Element {
 
     const isDarkMode = useColorScheme() === 'dark'
+
+    useEffect(() => {
+        if(Platform.OS === 'android')
+        SplashScreen.hide();
+    }, [])
 
     return(
         <SafeAreaView>
